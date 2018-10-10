@@ -1,23 +1,23 @@
 {
-  "name": "namevault.co",
+  "name": "arising.io",
   "version": "1.0.0",
-  "description": "namevault is an account creation service for the EOS blockchain.",
+  "description": "Arising is an account creation service for the Arisen blockchain.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "predeploy": "cd nv-react && npm run build",
-    "deploy": "gh-pages -d nv-react/build"
+    "predeploy": "cd arising-react && npm run build",
+    "deploy": "gh-pages -d arising-react/build"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zachalam/namevault.co.git"
+    "url": "git+https://github.com/arisenio/arising.io.git"
   },
-  "author": "Zach Alam",
+  "author": "Arisen Community",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/zachalam/namevault.co/issues"
+    "url": "https://github.com/arisenio/arising.io/issues"
   },
-  "homepage": "https://github.com/zachalam/namevault.co#readme",
+  "homepage": "https://github.com/arisenio/arising.io#readme",
   "devDependencies": {
     "gh-pages": "^1.2.0"
   }
