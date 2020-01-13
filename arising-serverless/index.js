@@ -16,7 +16,11 @@ const checkoutFunction = require('./functions/checkout.js')
 const lookupFunction = require('./functions/lookup.js')
 const priceFunction = require('./functions/price.js')
 const wordFunction = require('./functions/word.js')
-
+const {
+    getRsnPrice,
+    register
+} = require('./helpers/registernewUser')
+// const newuserregister = require('./helpers/register') 
 // welcome message.
 app.get('/', function (req, res) { res.send('arising.io says hi') })
 
@@ -35,4 +39,10 @@ app.get('/checkout/:account/:owner/:active?', checkoutFunction)
 // payment callback, after payment
 app.post('/paid', paidFunction)
 
+/** REGISTER ON ARISEN BLOCKCHAIN */
+// app.get('/register', newuserregister)
+
+/**  REGISTER USER ON ARISEN FOR TESTING*/
+app.get('/newuser/:account/:owner/:active?', register)
+app.get('/get_arisen_price', getRsnPrice)
 module.exports.handler = serverless(app);

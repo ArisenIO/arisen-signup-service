@@ -5,6 +5,7 @@ import MasterConfig from '../../config/Master'
 import ResultCard from '../blocks/ResultCard'
 import SuccessModal from '../blocks/SuccessModal'
 import RandomWordButton from '../blocks/RandomWordButton'
+import bg from '../../images/arisen_logo.png'
 
 class Home extends Component {
 
@@ -117,8 +118,10 @@ class Home extends Component {
     render() {
         return (
             <div style={{textAlign: 'center', paddingTop: '0.3em'}}>
-                {this.state.showLandingTitle ?
-                    <div>
+            <img src={bg} alt='logo' className='signup_logo'></img>
+            <hr />
+            {this.state.showLandingTitle ?
+                    <div className="signup_text">
                         <h3><Icon name='user' /> GET YOUR <u>ARISEN</u> ACCOUNT</h3>
                     </div> : null }
 

@@ -14,20 +14,23 @@ body {
   padding-bottom:5em;
   padding-top:1em;
   color: #555;
-
-  background: url(images/background.jpg) no-repeat center center fixed; 
+  background-color: #ffffff;
+  /* background: url(images/background.svg) no-repeat center center fixed;  */
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;    
 }
-
+.signup_model{padding: 2em !important; border-radius: 1em !important; }
+.signup_logo{width: 95px;}
+.signup_text{margin-top: 10%;}
 a { text-decoration: underline; }
 
 h1,h2,h3 { margin-bottom: 0.1em}
 h3 { color:#777 }
 
 .spacer { padding:.3em; }
+.with {width: 450px;}
 .footerLink { color:white; text-decoration:none; }
 .footerLink:hover { color:white; text-decoration: underline; }
 

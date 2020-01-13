@@ -1,5 +1,5 @@
 // a method that registers an account name on the RSN network.
-const Rsn = require('arisenjs')
+const Rsn = require('arisenjsv1')
 const config_rsn = require('../config/arisen.js')
 const config_master = require('../config/master.js')
 const rsn = Rsn(config_rsn)

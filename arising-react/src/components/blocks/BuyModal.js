@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { Button, Input, Icon, Modal, Divider } from 'semantic-ui-react'
 import ecc from 'arisenjs-ecc'
 import PayButton from './PayButton'
+import { CopyToClipboard } from 'react-copy-to-clipboard'
+import 'font-awesome/css/font-awesome.min.css';
 
 class BuyModal extends Component {
 
@@ -13,12 +15,29 @@ class BuyModal extends Component {
         activePrivate: '',  // active prv/pub key pair
         activePublic: '',
         activeLoading: false,
-        showActivePair: false // show the active keypair
+        showActivePair: false, // show the active keypair
+        copied: false // Copy the key pairs
     }
+    componentDidMount() {
+        this.genKeyPair('owner');
+        this.genKeyPair('avtive');
 
+    }
     open = () => { this.setState({open: true})}
     close = () => { this.setState({open: false})}
     showActive = () => { this.setState({showActivePair:true}) }
+    
+    textCopy = (text) => {
+
+        if(text) {
+            this.setState({copied: text})
+            setTimeout(() => {
+                this.setState({copied: false})
+            }, 2000)
+        }
+    }
+
+
     onKeyChange = (e,genType) => {
         // capture typing of public key.
         this.setState({[`${genType}Private`]: '', [`${genType}Public`]: e.target.value})
@@ -65,21 +84,32 @@ class BuyModal extends Component {
         <div>
             <h3>
                 {genType} public key &nbsp;
-                <Button size='mini' onClick={() => {this.genKeyPair(genType)}}
-                    loading={this.state[`${genType}Loading`]}>need one?</Button>
-                {pubKey ? <Button size='mini' icon='cancel' onClick={() => {this.onKeyReset(genType)}} /> : null }
+                {/* <Button size='mini' onClick={() => {this.genKeyPair(genType)}}
+                    loading={this.state[`${genType}Loading`]}>need one?</Button> */}
+                {/**pubKey ? <Button size='mini' icon='cancel' onClick={() => {this.onKeyReset(genType)}} /> : null */ }
+                <CopyToClipboard
+                    text={"PUBLIC_KEY - " + pubKey + " , PRIVATE_KEY - " + privKey}
+                    onCopy={(text,result) => {
+                        this.textCopy(text)
+                    }}
+                    >
+                    <span><i className="fa fa-copy"></i></span>
+                </CopyToClipboard>
+                {"PUBLIC_KEY - " + pubKey + " , PRIVATE_KEY - " + privKey === this.state.copied ? <span style={{color: 'red', fontSize: 14, marginLeft: 10}}>Public & Private Key Copied</span> : null}
             </h3>
             <div className="spacer" />
             <Input
                 placeholder='RSN8mUGcoTi12WMLtTfYFGBSFCtHUSVq15h3XUoMhiAXyRPtTgZjb'
                 onChange={(e) => this.onKeyChange(e,genType)}
                 value={pubKey}
+                // onChange={({target: {value}}) => this.setState({value, copied: false})}
                 fluid
-                error={Boolean(pubKey.length) && !ecc.isValidPublic(pubKey) }   // highlight if not empty and invalid
+                error={Boolean(pubKey.length) && !ecc.isValidPublic(pubKey) } // highlight if not empty and invalid
             />
             {privKey ?
                 <Input
                     value={privKey}
+                    onChange={({target: {value}}) => this.setState({value, copied: false})}
                     size='mini'
                     label={{ icon: 'key', color: 'green' }}
                     labelPosition='right corner'
@@ -102,9 +132,9 @@ class BuyModal extends Component {
                 icon='checkmark'
                 labelPosition='right'
                 onClick={this.open}
-                content={`Buy, $${accountPrice} USD`}
+                content= 'Procced'
             />
-            <Modal closeIcon size='mini' dimmer='blurring' open={this.state.open} onClose={this.close}>
+            <Modal closeIcon size='tiny' dimmer='blurring' open={this.state.open} onClose={this.close}>
                 <Modal.Content>
 
                     <h1><Icon name='user circle' /> {searchResponse.account}</h1>
@@ -116,7 +146,7 @@ class BuyModal extends Component {
                     {this.renderKeyInputs(true)}
                     <br />
                     {this.state.showActivePair ? this.renderKeyInputs(false) :
-                    <Button size='mini' onClick={this.showActive}>+ active public key (optional)</Button>}
+                    /** <Button size='mini' onClick={this.showActive}>+ active public key (optional)</Button> */ this.renderKeyInputs(false)}
 
                 </Modal.Content>
                 <Modal.Actions>

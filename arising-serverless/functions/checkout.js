@@ -7,11 +7,18 @@ const getPrice = require('../helpers/price.js')
 
 function checkout(req,res) {
     let { account, owner, active } = req.params
+
     let theDescription = [owner,active].filter((v) => {return v}).join(", ")
     
     // get last price before creating checkout.
     getPrice((latest_price,extraPrice) => {
-
+      // return  res.status(200).json({
+      //   account,
+      //   owner,
+      //   active,
+      //   latest_price,
+      //   extraPrice
+      // })
       // if there is a + in the account name, stake extra CPU/NET.
       let shouldStakeExtra = Boolean(account.indexOf("+") > 1)
       let checkoutAmount = shouldStakeExtra ? latest_price+extraPrice : latest_price
