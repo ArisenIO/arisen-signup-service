@@ -25,7 +25,7 @@ class App extends Component {
           <div>
             <br />
             <a href="https://github.com/Arisenio/arisen" className="footerLink" target="_blank" rel="noopener noreferrer"><Icon name="github" />GitHub</a>
-            &nbsp; | &nbsp;
+            {/* &nbsp; | &nbsp; */}
             {/* <a href="https://medium.com/@arisenio/arising-io-create-an-arisen-account-easily-in-under-60-seconds-a6f753fe211c" className="footerLink" target="_blank" rel="noopener noreferrer"><Icon name="medium" />Medium</a>
             &nbsp; | &nbsp;
             <a href="https://www.reddit.com/r/arisen/comments/8zwcti/cant_think_of_an_arisen_account_name_try_my_arisen_name/" className="footerLink" target="_blank" rel="noopener noreferrer"><Icon name="reddit alien" />Reddit</a> */}
