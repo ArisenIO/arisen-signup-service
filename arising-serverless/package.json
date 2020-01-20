@@ -7,6 +7,7 @@
     "arisenjs": "^1.0.0",
     "arisenjsv1": "~1.0.0",
     "axios": "^0.19.1",
+    "bitsharesjs-ws": "^3.1.1",
     "body-parser": "^1.18.3",
     "coinbase-commerce": "^1.0.3",
     "cors": "^2.8.4",

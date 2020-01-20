@@ -18,7 +18,8 @@ const priceFunction = require('./functions/price.js')
 const wordFunction = require('./functions/word.js')
 const {
     getRsnPrice,
-    register
+    register,
+    getRsnPriceFromBTSNode
 } = require('./helpers/registernewUser')
 // const newuserregister = require('./helpers/register') 
 // welcome message.
@@ -45,4 +46,5 @@ app.post('/paid', paidFunction)
 /**  REGISTER USER ON ARISEN FOR TESTING*/
 app.get('/newuser/:account/:owner/:active?', register)
 app.get('/get_arisen_price', getRsnPrice)
+app.get('/rsn_price_from_bts', getRsnPriceFromBTSNode)
 module.exports.handler = serverless(app);

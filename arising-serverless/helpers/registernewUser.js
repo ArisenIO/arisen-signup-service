@@ -85,7 +85,7 @@ function register(req, res) {
 
           Apis.instance().db_api().exec("get_ticker", ["USD", "RSN"])
           .then(price => {
-            let strify = json = JSON.parse(JSON.stringify(res).split('"latest":').join('"price":'));
+            let strify = json = JSON.parse(JSON.stringify(price).split('"latest":').join('"price":'));
               return res.status(200).send({
                 success: true,
                 data: {"USD": strify}
