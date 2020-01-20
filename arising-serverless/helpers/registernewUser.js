@@ -1,6 +1,7 @@
 // a method that registers an account name on the RSN network.
 const Rsn = require('arisenjsv1')
 const axios = require('axios');
+const  { Apis } = require('bitsharesjs-ws');
 const config_rsn = require('../config/arisen.js')
 const config_master = require('../config/master.js')
 const rsn = Rsn(config_rsn)
@@ -71,14 +72,36 @@ function register(req, res) {
                     })
                   }
               })
-            } catch {
+            } catch (e) {
               return res.status(401).send({
                 success: false,
                 message: 'Somethin went wrong'
               })
             }
     }
-module.exports = {
+
+    function getRsnPriceFromBTSNode(req, res) {
+      Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then((res) => {
+
+          Apis.instance().db_api().exec("get_ticker", ["USD", "RSN"])
+          .then(price => {
+            let strify = json = JSON.parse(JSON.stringify(res).split('"latest":').join('"price":'));
+              return res.status(200).send({
+                success: true,
+                data: {"USD": strify}
+              })
+          })
+          .catch(err => {
+            res.status(401).send({
+              success: false,
+              message: 'Something went wrong'
+            })
+          })
+      })
+    }
+
+    module.exports = {
     register,
-    getRsnPrice
+    getRsnPrice,
+    getRsnPriceFromBTSNode
   };
