@@ -81,7 +81,7 @@ function register(req, res) {
     }
 
     function getRsnPriceFromBTSNode(req, res) {
-      Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then((res) => {
+      Apis.instance("wss://bitshares.openledger.info/ws", true).init_promise.then(() => {
 
           Apis.instance().db_api().exec("get_ticker", ["USD", "RSN"])
           .then(price => {
