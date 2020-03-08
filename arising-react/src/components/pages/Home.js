@@ -118,6 +118,9 @@ class Home extends Component {
     render() {
         return (
             <div style={{textAlign: 'center', paddingTop: '0.3em'}}>
+    <div>
+    <p style={{textAlign: 'center', color: 'black'}}>Important Note: This blockchain explorer is for exploring Arisen`s test network. Arisen`s main network officially launches April 16th, 2020. Follow the countdown to click<a target='blank' href='https://arisen.network' style={{color: 'blue'}}> here</a></p>
+    </div>
             <img src={bg} alt='logo' className='signup_logo'></img>
             <hr />
             {this.state.showLandingTitle ?
