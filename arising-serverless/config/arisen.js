@@ -8,8 +8,8 @@ module.exports = {
     httpEndpoint: 'https://greatchains.arisennodes.io',
     expireInSeconds: 60,
     broadcast: true,
-    authorization: 'arisen' + '@active',
+    authorization: 'peeps' + '@active',
     debug: true, // API activity
     sign: true,
-    creatorAccountName: 'arisen'
+    creatorAccountName: 'peeps'
 }
