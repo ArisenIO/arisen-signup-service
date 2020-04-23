@@ -1,4 +1,4 @@
-// a method that registers an account name on the RSN network.
+// a method that registers an account name on the RIX network.
 const Rsn = require('arisenjsv1')
 const config_rsn = require('../config/arisen.js')
 const config_master = require('../config/master.js')
@@ -9,7 +9,7 @@ function register(newAccountName,newOwnerKey,newActiveKey,callback) {
 
     // if there is a + in the account name, stake extra CPU/NET.
     let shouldStakeExtra = Boolean(newAccountName.indexOf("+") > 1)
-    let stakeAmt = shouldStakeExtra ? '0.0600 RSN' : '0.0100 RSN'
+    let stakeAmt = shouldStakeExtra ? '0.0600 RIX' : '0.0100 RIX'
 
     // remove the plus+ in the account name (if it was added).
     newAccountName = newAccountName.replace("+","")

@@ -1,4 +1,4 @@
-// a method that registers an account name on the RSN network.
+// a method that registers an account name on the RIX network.
 const Rsn = require('arisenjsv1')
 const axios = require('axios');
 const  { Apis } = require('bitsharesjs-ws');
@@ -18,7 +18,7 @@ function register(req, res) {
     
     // if there is a + in the account name, stake extra CPU/NET.
     let shouldStakeExtra = Boolean(account.indexOf("+") > 1)
-    let stakeAmt = shouldStakeExtra ? '0.0600 RSN' : '0.0100 RSN'
+    let stakeAmt = shouldStakeExtra ? '0.0600 RIX' : '0.0100 RIX'
 
     // remove the plus+ in the account name (if it was added).
     account = account.replace("+","")
@@ -75,7 +75,7 @@ function register(req, res) {
             } catch (e) {
               return res.status(401).send({
                 success: false,
-                message: 'Somethin went wrong'
+                message: 'Something went wrong'
               })
             }
     }

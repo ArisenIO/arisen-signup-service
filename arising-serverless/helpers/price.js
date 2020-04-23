@@ -17,7 +17,7 @@ function getPrice(callback) {
     getJSON(config_cmc.httpEndpoint, function(err,market){
 
         if(err) {
-            // unable to retrieve market data for RSN.
+            // unable to retrieve market data for RIX.
             callback(config_master.fallbackPricing)
         }
 
@@ -25,23 +25,23 @@ function getPrice(callback) {
         rsn.getTableRows(true, 'arisen', 'arisen', 'rammarket', 'id', 0, -1, 1)
             .then((ramdata) => {
 
-                // get ram price in RSN.
+                // get ram price in RIX.
                 let ramtable = ramdata.rows[0]
                 let base = ramtable['base']['balance'].split(' ')[0]
                 let quote = ramtable['quote']['balance'].split(' ')[0]
                 let ramprice_in_rsn = 1024 * parseFloat(quote)/parseFloat(base)
 
-                // get RSN price in USD
+                // get RIX price in USD
                 let { price } = market.data.quotes.USD;
 
                 // service price calculated via:
-                // ((3*ramprice_in_rsn)*price) + (0.02*price)
-                // 3kb + 0.02rsn are sent to owner as part of purchase.
+                // ((3*ramprice_in_rix)*price) + (0.02*price)
+                // 3kb + 0.02rix are sent to owner as part of purchase.
                 let total_price = Math.ceil((3*ramprice_in_rsn)*price) +
                 Math.ceil(0.02*price)
 
 
-                // also calculate the price for extra stake (0.10RSN)
+                // also calculate the price for extra stake (0.10RIX)
                 let extra_stake = Math.ceil((price * config_master.extraStake))
 
                 callback(total_price,extra_stake)
