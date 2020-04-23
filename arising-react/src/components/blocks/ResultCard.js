@@ -28,7 +28,7 @@ class ResultCard extends Component {
                         showSuccessModal={this.props.showSuccessModal}
                     />
                     <div className='spacer' />
-                    Includes 4kb of RAM and 0.02 RSN.       
+                    Includes 4kb of RAM and 0.02 RIX.       
                 </FadeIn>
             )
 
