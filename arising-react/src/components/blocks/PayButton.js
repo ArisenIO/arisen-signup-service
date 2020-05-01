@@ -52,7 +52,7 @@ class PayButton extends Component {
                     //  window.location.href='https://github.com/arisenio/avote/releases'
                     Swal.fire({
                         title:'Download', // eslint-disable-next-line 
-                        html: 'Click to download aVote dapp to interact with Arisen Blockchain'+' '+'<a href="https://github.com/arisenio/avote/releases" target="_blank">click here download</a>',
+                        html: 'You can use the aVote wallet to interact with the Arisen network.'+' '+'<a href="https://github.com/arisenio/avote/releases" target="_blank">Click here to download.</a>',
                     })
                 }
             })

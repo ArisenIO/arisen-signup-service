@@ -132,7 +132,7 @@ class BuyModal extends Component {
                 icon='checkmark'
                 labelPosition='right'
                 onClick={this.open}
-                content= 'Procced'
+                content= 'Proceed'
             />
             <Modal closeIcon size='tiny' dimmer='blurring' open={this.state.open} onClose={this.close}>
                 <Modal.Content>

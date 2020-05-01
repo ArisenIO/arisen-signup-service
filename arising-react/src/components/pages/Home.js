@@ -5,7 +5,7 @@ import MasterConfig from '../../config/Master'
 import ResultCard from '../blocks/ResultCard'
 import SuccessModal from '../blocks/SuccessModal'
 import RandomWordButton from '../blocks/RandomWordButton'
-import bg from '../../images/arisen_logo.png'
+import bg from '../../images/logo.png'
 
 class Home extends Component {
 
