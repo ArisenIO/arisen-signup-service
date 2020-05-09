@@ -22,7 +22,7 @@ body {
   background-size: cover;    
 }
 .signup_model{padding: 2em !important; border-radius: 1em !important; }
-.signup_logo{width: 95px;}
+.signup_logo{width: 85px; height: auto;}
 .signup_text{margin-top: 10%;}
 a { text-decoration: underline; }
 
